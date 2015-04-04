@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('ninjacode', ['ionic', 'ninjacode.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -30,42 +30,64 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: "/search",
+  .state('app.inicio', {
+    url: "/inicio",
     views: {
       'menuContent': {
-        templateUrl: "templates/search.html"
+        templateUrl: "templates/inicio.html"
       }
     }
   })
 
-  .state('app.browse', {
-    url: "/browse",
+  .state('app.acerca', {
+    url: "/acerca",
     views: {
       'menuContent': {
-        templateUrl: "templates/browse.html"
+        templateUrl: "templates/acerca.html"
       }
     }
   })
-    .state('app.playlists', {
-      url: "/playlists",
+    .state('app.albumes', {
+      url: "/albumes",
       views: {
         'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
+          templateUrl: "templates/albumes.html",
+          controller: 'AlbumesCtrl'
         }
       }
     })
 
-  .state('app.single', {
-    url: "/playlists/:playlistId",
+  .state('app.album', {
+    url: "/album/:albumId",
     views: {
       'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
+        templateUrl: "templates/album.html",
+        controller: 'AlbumCtrl'
       }
     }
-  });
+  })
+
+  .state('app.artistas', {
+      url: "/artistas",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/artistas.html",
+          controller: 'ArtistasCtrl'
+        }
+      }
+    })
+
+  .state('app.artista', {
+    url: "/artista/:artistaId",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/artista.html",
+        controller: 'ArtistaCtrl'
+      }
+    }
+  })
+
+  ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/inicio');
 });

@@ -1,39 +1,11 @@
-angular.module('starter.controllers', [])
+angular.module('ninjacode.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
-  $scope.loginData = {};
-
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
+  
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+.controller('AlbumesCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
@@ -44,5 +16,31 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('ArtistasCtrl', function($scope) {
+  $scope.artistas = [
+    { title: 'Reggae Man', id: 1, genero:"reggae" },
+    { title: 'Chill Girl', id: 2, genero: "Chillout" },
+    { title: 'Dubstep Skrillex', id: 3, genero: "electronico" },
+    { title: 'Indie dudes', id: 4, genero: "rock alt" },
+    { title: 'Rap niggas', id: 5, genero: "hiphop" },
+    { title: 'Cowbell guys', id: 6, genero: "country" }
+  ];
+})
+
+.controller('AlbumCtrl', function($scope, $stateParams) {
+})
+
+.controller('ArtistaCtrl', function($scope, $stateParams) {
+  $scope.artistas = [
+    { title: 'Reggae Man', id: 1, genero:"reggae" },
+    { title: 'Chill Girl', id: 2, genero: "Chillout" },
+    { title: 'Dubstep Skrillex', id: 3, genero: "electronico" },
+    { title: 'Indie dudes', id: 4, genero: "rock alt" },
+    { title: 'Rap niggas', id: 5, genero: "hiphop" },
+    { title: 'Cowbell guys', id: 6, genero: "country" }
+  ];
+
+    var artistaId = $stateParams.artistaId;
+    $scope.artista = $scope.artistas[artistaId - 1];
+
 });

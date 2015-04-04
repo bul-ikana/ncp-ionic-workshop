@@ -1,0 +1,9 @@
+<ion-view view-title="Artistas">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="artista in artistas" href="#/app/artista/{{artista.id}}">
+        <h2>{{artista.title}}</h2>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
